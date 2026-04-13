@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武氏安 - 專業個人主頁</title>
+    <style>
+        /* 全域樣式 - 模仿 LinkedIn 的灰白藍色調 */
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+            background-color: #f3f2ef; /* LinkedIn 背景灰 */
+            color: rgba(0,0,0,0.9);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* 頁面容器 */
+        .container {
+            max-width: 1128px; /* LinkedIn 標準寬度 */
+            margin: 20px auto;
+            padding: 0 20px;
+            padding-bottom: 40px;
+        }
+
+        /* 通用卡片樣式 */
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* --- 個人資訊區塊 (Header) --- */
+        .header-card {
+            position: relative;
+        }
+
+.cover-photo {
+    height: 200px;
+    background-image: url('aa.jpg'); 
+       background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+}
+
+        .profile-details {
+            padding: 0 24px 24px 24px;
+            position: relative;
+            margin-top: -75px; /* 讓頭像向上偏移 */
+        }
+
+        /* 個人相片 */
+        .profile-pic {
+            width: 152px;
+            height: 152px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+            object-fit: cover;
+            background-color: #fff;
+        }
+
+        .info-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .basic-info {
+            flex: 1;
+        }
+
+        .basic-info h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .basic-info .headline {
+            font-size: 16px;
+            color: rgba(0,0,0,0.9);
+            margin: 4px 0;
+        }
+
+        .basic-info .location {
+            font-size: 14px;
+            color: rgba(0,0,0,0.6);
+            margin: 4px 0 12px 0;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #0a66c2; /* LinkedIn 藍 */
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        .contact-info a {
+            text-decoration: none;
+            color: #0a66c2;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 行動按鈕 */
+        .action-buttons {
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #0a66c2;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #004182;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #0a66c2;
+            border: 1px solid #0a66c2;
+            margin-left: 8px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f7fe;
+            border-width: 2px;
+            padding: 5px 15px; /* 保持按鈕大小一致 */
+        }
+
+        /* --- 內容區塊通用樣式 --- */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 24px 24px 0 24px;
+            margin: 0;
+        }
+
+        .section-content {
+            padding: 16px 24px 24px 24px;
+        }
+
+        /* 關於 */
+        .about-text {
+            font-size: 14px;
+            color: rgba(0,0,0,0.9);
+            white-space: pre-line; /* 保留換行 */
+            line-height: 1.6;
+        }
+
+        /* 經歷與學歷項目 */
+        .entry-item {
+            display: flex;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .entry-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background-color: #e2f0fe;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #0a66c2;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .entry-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .entry-details .subtitle {
+            font-size: 14px;
+            margin: 2px 0;
+            font-weight: 500;
+        }
+
+        .entry-details .date-range {
+            font-size: 14px;
+            color: rgba(0,0,0,0.6);
+            margin: 2px 0;
+        }
+
+        .entry-details .description {
+            font-size: 14px;
+            margin-top: 8px;
+            color: rgba(0,0,0,0.9);
+        }
+        
+        .entry-details .description ul {
+            padding-left: 20px;
+            margin-top: 4px;
+        }
+
+        /* 技能 */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,0.6);
+            color: rgba(0,0,0,0.6);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .skill-item:hover {
+            background-color: #f3f2ef;
+            color: #000;
+            border-color: #000;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(0,0,0,0.6);
+            margin-top: 20px;
+        }
+
+        /* 手機版適應 (Responsive) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            .cover-photo {
+                height: 120px;
+            }
+            .profile-details {
+                margin-top: -50px;
+                text-align: center;
+            }
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                display: block;
+            }
+            .info-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-info {
+                margin-top: 16px;
+                text-align: center;
+            }
+            .entry-item {
+                flex-direction: column;
+            }
+            .logo-placeholder {
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="card header-card">
+        <div class="cover-photo"></div>
+        
+        <div class="profile-details">
+            <img src="images/aaa.jpg" alt="武氏安的個人相片">
+
+            <div class="info-section">
+                <div class="basic-info">
+                    <h1>武氏安</h1>
+                    <p class="headline">黎明技術學院 | 數位多媒體系</p>
+                    <p class="location">越南，太原省</p>
+                    <div class="action-buttons">
+                        <a href="mailto:wuan0111@gmail.com" class="btn btn-primary">與我聯繫</a>
+                        <a href="#" class="btn btn-secondary">瀏覽作品集</a>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <p>📧 <a href="mailto:wuan0111@gmail.com">wuan0111@gmail.com</a></p>
+                    <p>📞 0966934563</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="card">
+        <h2 class="section-title">關於我</h2>
+        <div class="section-content">
+            <p class="about-text">大家好~我是武氏安，目前就讀大學二年級，對數位內容創作與網頁設計充滿熱情。
+
+在學期間積極培養具備 HTML 與 CSS 基礎，並透過實作專案累積經驗，持續提升設計與技術整合能力。
+
+我喜歡將創意與實用性結合，打造具有個人風格的作品，未來希望能在數位設計或相關領域發展，持續精進專業技能，創造更多有價值的內容。</p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2 class="section-title">實作經驗與專案</h2>
+        <div class="section-content">
+            
+            <div class="entry-item">
+                <div class="logo-placeholder">創</div> 
+                <div class="entry-details">
+                    <h3>品牌與視覺設計專案</h3>
+                    <p class="subtitle">Anna Studio</p>
+                    <p class="date-range">2026 年 1 月 - 至今</p>
+                    <div class="description">
+                        <ul>
+                            <li>主導 Anna Studio 的品牌識別建立，包含 Logo 設計與視覺風格定調。</li>
+                            <li>結合數位內容創作與前端技術，為品牌打造一致且具質感的線上形象。</li>
+                            <li>深入探索角色設計與電影級視覺構圖，應用於品牌展示。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="entry-item">
+                <div class="logo-placeholder">設</div>
+                <div class="entry-details">
+                    <h3>多媒體設計專案負責人</h3>
+                    <p class="subtitle">學術/課程專案</p>
+                    <p class="date-range">2026 年 3 月</p>
+                    <div class="description">
+                        <ul>
+                            <li>完成多重風格（包含現代城市、廢土、奇幻等）的場景概念設計與課程提案。</li>
+                            <li>熟練運用特殊視角（如鳥瞰、低視角）增強視覺張力，並融入 AI 圖像輔助技術進行創意發想。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card">
+        <h2 class="section-title">學歷</h2>
+        <div class="section-content">
+            
+            <div class="entry-item">
+                <div class="logo-placeholder">學</div> 
+                <div class="entry-details">
+                    <h3>黎明技術學院</h3>
+                    <p class="subtitle">數位設計 / 相關科系 (學士學位)</p>
+                    <p class="date-range">2024 年 - 預計 2028 年畢業</p>
+                    <p class="description">目前就讀大二。在校期間專注於數位影像處理以及互動內容企劃，並積極參與實作課程。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card">
+        <h2 class="section-title">專業技能</h2>
+        <div class="section-content">
+            <ul class="skills-list">
+                <li class="skill-item">HTML/CSS 前端開發</li>
+                <li class="skill-item">數位內容創作</li>
+                <li class="skill-item">網頁設計 (UI)</li>
+                <li class="skill-item">品牌識別設計</li>
+                <li class="skill-item">AI 圖像生成與應用</li>
+                <li class="skill-item">角色設計</li>
+                <li class="skill-item">電影級視覺構圖</li>
+                <li class="skill-item">設計與技術整合</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 武氏安. 版權所有.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
